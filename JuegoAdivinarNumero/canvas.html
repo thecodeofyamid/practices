@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Canvas</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="miCanvas" width="500" height="500"></canvas>
+
+  <script>
+    // Obtener el elemento canvas y su contexto 2D
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Dibujar un rectángulo azul
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(50, 50, 200, 100);
+
+    // Dibujar un círculo rojo
+    ctx.beginPath();
+    ctx.arc(300, 150, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.stroke();
+  </script>
+</body>
+</html>
