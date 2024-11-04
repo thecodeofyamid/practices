@@ -1,14 +1,14 @@
-function GenerarNumero(min,max) {
+function generarNumero(min,max) {
     randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
     console.log(randomNumber)
 }
 
-function EnviarMensaje(contenido,color) {
+function enviarMensaje(contenido,color) {
     mensaje.innerHTML = `<h4 style='padding: 2%; width: 100%'>${contenido}</h4>`
     mensaje.style.color = color
 }
 
-function CountFunc(boolean){
+function countFunc(boolean){
     if (boolean){
         count++
     } else{
@@ -20,19 +20,19 @@ function CountFunc(boolean){
 function timeOut(boolean) {
     if (boolean){
         setTimeout(() => {
-            DesactivarCampos()
-            MostrarOpciones()
+            desactivarCampos()
+            mostrarOpciones()
         }, 5000);
         return
     } else{
         setTimeout(() => {
-            EnviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`, 'blue')
+            enviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`, 'blue')
         }, 3000);
         return
     }  
 }
 
-function ActivarCampos() {
+function activarCampos() {
     inputIntento.disabled = false
     btnIntentar.disabled = false
     inputIntento.style.cursor = 'pointer'
@@ -42,7 +42,7 @@ function ActivarCampos() {
     btnIntentar.style.opacity = '1'
 }
 
-function DesactivarCampos(){
+function desactivarCampos(){
     mensaje.innerText = ''
     numeroSecreto.innerText = ''
     numeroSecreto.style.display = 'none'
@@ -54,18 +54,18 @@ function DesactivarCampos(){
     inputIntento.style.opacity = '0.5'
     contenedorIntentos.style.display = 'none'
 }
-function OcultarOpciones(){
+function ocultarOpcioens(){
     inputIntento.style.display = 'none'
     btnIntentar.style.display = 'none'
     contenedorIntentos.style.display = 'none'
 }
-function MostrarOpciones(){
+function mostrarOpciones(){
     inputIntento.style.display = 'block'
     btnIntentar.style.display = 'block'
     contenedorIntentos.style.display = 'flex'
     btnStart.style.display = 'block'
 }
-function MostrarNumero(randomNumber){
+function mostrarNumero(randomNumber){
     numeroSecreto.style.display = 'block'
     numeroSecreto.innerText = randomNumber
 }
@@ -84,7 +84,7 @@ const numeroSecreto = document.getElementById('numero-secreto')
 const btnIntentar = document.getElementById('btn-intentar')
 const inputIntento = document.getElementById('input-intento')
 
-EnviarMensaje('¡Bienvenido!, presiona el botón "Comenzar" para poder jugar','blue',)
+enviarMensaje('¡Bienvenido!, presiona el botón "Comenzar" para poder jugar','blue',)
 inputIntento.disabled = true
 btnIntentar.disabled = true
 btnIntentar.style.cursor = 'not-allowed'
@@ -94,39 +94,39 @@ btnIntentar.style.opacity = '0.5'
 contenedorIntentos.style.display = 'none'
 
 btnStart.addEventListener('click', () => {
-    GenerarNumero(min,max)
+    generarNumero(min,max)
     btnStart.style.display = 'none'
     intentos.innerText = count
-    EnviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`,'blue')
-    ActivarCampos()
+    enviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`,'blue')
+    activarCampos()
 })
 btnIntentar.addEventListener('click', () => {
-    CountFunc(true)
+    countFunc(true)
     const input = parseInt(inputIntento.value)
 
     if (isNaN(input)){
-        EnviarMensaje('Ingresa un número','orange')
+        enviarMensaje('Ingresa un número','orange')
     }
     if (input === randomNumber){
-        EnviarMensaje('Adivinaste el número en ' + count + ' intentos, este es el número secreto: ', 'green')
-        MostrarNumero(randomNumber)
-        OcultarOpciones()
+        enviarMensaje('Adivinaste el número en ' + count + ' intentos, este es el número secreto: ', 'green')
+        mostrarNumero(randomNumber)
+        ocultarOpciones()
         timeOut(true)
-        CountFunc(false)
+        countFunc(false)
         inputIntento.value=''
         return
     }else if(input > 10){
-        EnviarMensaje(`Ingresa un número entre ${min} y ${max}`, 'orange')
+        enviarMensaje(`Ingresa un número entre ${min} y ${max}`, 'orange')
         timeOut(false)
     } else if(input < randomNumber){
-        EnviarMensaje('El número ingresado es menor al número secreto', 'red')
+        enviarMensaje('El número ingresado es menor al número secreto', 'red')
         timeOut(false)
     } else if(input > randomNumber){
-        EnviarMensaje('El número ingresado es mayor al número secreto', 'red')
+        enviarMensaje('El número ingresado es mayor al número secreto', 'red')
         timeOut(false)
     }
     else{
-        EnviarMensaje('No adivinaste el número', 'red')
+        enviarMensaje('No adivinaste el número', 'red')
         timeOut(false)
     }
     inputIntento.value=''
