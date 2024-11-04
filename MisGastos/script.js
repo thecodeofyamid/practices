@@ -36,6 +36,7 @@ function validation(currentCoins){
     }
 }
 
+
 piggyBanck.addEventListener('click', () =>{
     //Cerdito salta
     jump(piggyBanck)

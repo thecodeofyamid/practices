@@ -71,6 +71,7 @@ h1{
 }
 #numero-secreto{
     background-color: green;
+    color: white;
     padding: 5%;
     margin: 2%;
     display: none;
