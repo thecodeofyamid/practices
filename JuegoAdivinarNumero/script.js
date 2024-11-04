@@ -23,10 +23,12 @@ function timeOut(boolean) {
             DesactivarCampos()
             MostrarOpciones()
         }, 5000);
+        return
     } else{
         setTimeout(() => {
             EnviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`, 'blue')
         }, 3000);
+        return
     }  
 }
 
