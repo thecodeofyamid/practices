@@ -1,133 +1,152 @@
-function generarNumero(min,max) {
+function init(){
+    sendMessage('Welcome! Press the "Start" button to play','blue',)
+    elements.attemptInput.disabled = true
+    elements.tryButton.disabled = true
+    elements.tryButton.style.cursor = 'not-allowed'
+    elements.attemptInput.style.cursor = 'not-allowed'
+    elements.attemptInput.style.opacity = '0.5'
+    elements.tryButton.style.opacity = '0.5'
+    elements.attemptsContainer.style.display = 'none'
+}
+
+function generateNumber(min,max, randomNumber) {
     randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
-    console.log(randomNumber)
+    console.log( randomNumber)
+    return randomNumber
 }
 
-function enviarMensaje(contenido,color) {
-    mensaje.innerHTML = `<h4 style='padding: 2%; width: 100%'>${contenido}</h4>`
-    mensaje.style.color = color
+function sendMessage(contenido,color) {
+    elements.message.innerHTML = `<h3 class="message">${contenido}</h3>`
+    elements.message.style.color = color
 }
 
-function countFunc(boolean){
+function counterFunction(boolean){
     if (boolean){
-        count++
+        gameConfig.count++
     } else{
-        count = 0
+        gameConfig.count = 0
     }
-    intentos.innerText = count
+    elements.attempts.innerText = gameConfig.count
 }
 
 function timeOut(boolean) {
     if (boolean){
         setTimeout(() => {
-            desactivarCampos()
-            mostrarOpciones()
+            disableFields()
         }, 5000);
+        setTimeout(() => {
+            showOptions()
+        }, 6000);
         return
     } else{
         setTimeout(() => {
-            enviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`, 'blue')
+            sendMessage(`Intenta adivinar el número entre ${gameConfig.min} y ${gameConfig.max}`, 'blue')
         }, 3000);
         return
     }  
 }
 
-function activarCampos() {
-    inputIntento.disabled = false
-    btnIntentar.disabled = false
-    inputIntento.style.cursor = 'pointer'
-    btnIntentar.style.cursor = 'pointer'
-    contenedorIntentos.style.display = 'flex'
-    inputIntento.style.opacity = '1'
-    btnIntentar.style.opacity = '1'
+function enableFields() {
+    elements.attemptInput.disabled = false
+    elements.tryButton.disabled = false
+    elements.attemptInput.style.cursor = 'pointer'
+    elements.tryButton.style.cursor = 'pointer'
+    elements.attemptsContainer.style.display = 'flex'
+    elements.attemptInput.style.opacity = '1'
+    elements.tryButton.style.opacity = '1'
 }
 
-function desactivarCampos(){
-    mensaje.innerText = ''
-    numeroSecreto.innerText = ''
-    numeroSecreto.style.display = 'none'
-    inputIntento.disabled = true
-    btnIntentar.disabled = true
-    inputIntento.style.cursor = 'not-allowed'
-    btnIntentar.style.cursor = 'not-allowed'
-    btnIntentar.style.opacity = '0.5'
-    inputIntento.style.opacity = '0.5'
-    contenedorIntentos.style.display = 'none'
-}
-function ocultarOpcioens(){
-    inputIntento.style.display = 'none'
-    btnIntentar.style.display = 'none'
-    contenedorIntentos.style.display = 'none'
-}
-function mostrarOpciones(){
-    inputIntento.style.display = 'block'
-    btnIntentar.style.display = 'block'
-    contenedorIntentos.style.display = 'flex'
-    btnStart.style.display = 'block'
-}
-function mostrarNumero(randomNumber){
-    numeroSecreto.style.display = 'block'
-    numeroSecreto.innerText = randomNumber
+function disableFields(){
+    elements.message.innerText = ''
+    elements.secretNumber.innerText = ''
+    elements.secretNumber.style.display = 'none'
+    elements.attemptInput.disabled = true
+    elements.tryButton.disabled = true
+    elements.attemptInput.style.cursor = 'not-allowed'
+    elements.tryButton.style.cursor = 'not-allowed'
+    elements.tryButton.style.opacity = '0.5'
+    elements.attemptInput.style.opacity = '0.5'
+    elements.attemptsContainer.style.display = 'none'
 }
 
-//Definir rango de números para adivinar e inicializar contador de intentos, así como el número aleatorio, todo esto en variables específicas que posteriormente serán utilizadas
-let min = 1
-let max = 10
-let count = 0;
+function hideOptions(){
+    elements.attemptInput.style.display = 'none'
+    elements.tryButton.style.display = 'none'
+    elements.attemptsContainer.style.display = 'none'
+}
+
+function showOptions(){
+    init()
+    elements.attemptInput.style.display = 'block'
+    elements.tryButton.style.display = 'block'
+    elements.playButton.style.display = 'block'
+}
+
+function showNumber(randomNumber){
+    elements.secretNumber.style.display = 'block'
+    elements.secretNumber.innerHTML = `<h3>${randomNumber}</h3>`
+}
+
+function formatInput(attemptInput){
+    attemptInput.value=''
+}
+
+//ALGORITMO PRINCIPAL
 let randomNumber
+const gameConfig = {
+    min: 1,
+    max: 10,
+    count: 0,  
+    randomNumber: null
+}
 
-const contenedorIntentos = document.getElementById('contenedor-intentos')
-const btnStart = document.getElementById('comenzar')
-const intentos = document.getElementById('intentos')
-const mensaje = document.getElementById('mensaje')
-const numeroSecreto = document.getElementById('numero-secreto')
-const btnIntentar = document.getElementById('btn-intentar')
-const inputIntento = document.getElementById('input-intento')
+const elements = {
+    message: document.getElementById('message'),
+    secretNumber: document.getElementById('secret-number'),
+    tryButton: document.getElementById('try-button'),
+    attemptInput: document.getElementById('attempt-input'),
+    attemptsContainer: document.getElementById('attempts-container'),
+    attempts: document.getElementById('attempts'),
+    playButton: document.getElementById('play-button')
+}
 
-enviarMensaje('¡Bienvenido!, presiona el botón "Comenzar" para poder jugar','blue',)
-inputIntento.disabled = true
-btnIntentar.disabled = true
-btnIntentar.style.cursor = 'not-allowed'
-inputIntento.style.cursor = 'not-allowed'
-inputIntento.style.opacity = '0.5'
-btnIntentar.style.opacity = '0.5'
-contenedorIntentos.style.display = 'none'
-
-btnStart.addEventListener('click', () => {
-    generarNumero(min,max)
-    btnStart.style.display = 'none'
-    intentos.innerText = count
-    enviarMensaje(`Intenta adivinar el número entre ${min} y ${max}`,'blue')
-    activarCampos()
+init()
+elements.playButton.addEventListener('click', () => {
+    randomNumber = generateNumber(gameConfig.min, gameConfig.max, gameConfig.randomNumber)
+    elements.playButton.style.display = 'none'
+    elements.attempts.innerText = gameConfig.count
+    sendMessage(`Try to guess the number between ${gameConfig.min} and ${gameConfig.max}`,'blue')
+    enableFields()
 })
-btnIntentar.addEventListener('click', () => {
-    countFunc(true)
-    const input = parseInt(inputIntento.value)
+elements.tryButton.addEventListener('click', () => {
+    counterFunction(true)
+    const input = parseInt(elements.attemptInput.value)
+    console.log(input)
 
     if (isNaN(input)){
-        enviarMensaje('Ingresa un número','orange')
+        sendMessage('Enter a number','orange')
     }
     if (input === randomNumber){
-        enviarMensaje('Adivinaste el número en ' + count + ' intentos, este es el número secreto: ', 'green')
-        mostrarNumero(randomNumber)
-        ocultarOpciones()
+        sendMessage('You guessed the number in ' + gameConfig.count + ' attempts, this is the secret number: ', 'green')
+        showNumber(randomNumber)
+        hideOptions()
         timeOut(true)
-        countFunc(false)
-        inputIntento.value=''
+        counterFunction(false)
+        formatInput(elements.attemptInput)
         return
     }else if(input > 10){
-        enviarMensaje(`Ingresa un número entre ${min} y ${max}`, 'orange')
+        sendMessage(`Enter a number between ${gameConfig.min} and ${gameConfig.max}`, 'orange')
         timeOut(false)
     } else if(input < randomNumber){
-        enviarMensaje('El número ingresado es menor al número secreto', 'red')
+        sendMessage('The entered number is lower than the secret number', 'red')
         timeOut(false)
     } else if(input > randomNumber){
-        enviarMensaje('El número ingresado es mayor al número secreto', 'red')
+        sendMessage('The entered number is higher than the secret number', 'red')
         timeOut(false)
     }
     else{
-        enviarMensaje('No adivinaste el número', 'red')
+        sendMessage('You did not guess the number', 'red')
         timeOut(false)
     }
-    inputIntento.value=''
+    formatInput(elements.attemptInput)
 })

@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body,.container,.contenedor-intentos, .contenedor-btn{
+body,.container,.attempts-container, .container-button{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,7 +40,7 @@ h1{
     & input{
         width: 80%;
     }
-    & #btn-intentar{
+    & #try-button{
         background: orange;
         border: none;
         cursor: pointer;
@@ -50,13 +50,13 @@ h1{
         color: white;
         width: 80%;
     }
-    & #btn-intentar:hover{
+    & #try-button:hover{
         transform: scale(1.03);
         transition: 0.5s;
         background: #ffb875;
     }
 }
-.contenedor-intentos{
+.attempts-container{
     width: 80px;
     padding: 2%;
     margin-bottom: 5%;
@@ -69,14 +69,14 @@ h1{
         display: block;
     }
 }
-#numero-secreto{
+#secret-number{
     background-color: green;
     color: white;
     padding: 5%;
     margin: 2%;
     display: none;
 }
-#contenedor-btn{
+#container-button{
     width: 80%;
     & button{
         background: green;
