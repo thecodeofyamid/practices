@@ -45,7 +45,6 @@ function counterFunction(boolean) {
 
 function generateNumber(min,max, randomNumber) {
     randomNumber = Math.floor(Math.random() * (max - min + 1)) + min
-    console.log( randomNumber)
     return randomNumber
 }
 
@@ -148,7 +147,6 @@ elements.playButton.addEventListener('click', () => {
 elements.tryButton.addEventListener('click', () => {
     counterFunction(true)
     const input = parseInt(elements.attemptInput.value)
-    console.log(input)
     validation(input, randomNumber, elements.attemptInput, gameConfig.min, gameConfig.max, gameConfig.count)
     formatInput(elements.attemptInput)
 })
