@@ -6,7 +6,7 @@ function enableFields() {
     elements.attemptsContainer.style.display = 'flex'
     elements.attemptInput.style.opacity = '1'
     elements.tryButton.style.opacity = '1'
-}
+} 
 
 function disableFields(){
     elements.message.innerText = ''
