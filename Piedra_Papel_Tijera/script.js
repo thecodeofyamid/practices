@@ -1,21 +1,23 @@
 function init(){ 
-    elements.roundNumber.innerText = configGame.round
-    elements.player1Score.innerText = configGame.player1Score
-    elements.player2Score.innerText = configGame.player2Score   
-    elements.player1.style.display = 'none'
-    elements.player2.style.display = 'none'
     elements.board.style.display = 'none'
-    elements.information.style.display = 'none'
-    elements.menu2.style.display = 'none'
-    elements.start.style.display = 'none'
-    elements.restart.style.display = 'none'
-    elements.menu.style.display = 'none'
     elements.game.style.display = 'none'
+    elements.information.style.display = 'none'
     elements.initGame.style.display = 'flex'
+    elements.menu.style.display = 'none'
+    elements.menu2.style.display = 'none'
+    elements.player1.style.display = 'none'
+    elements.player1Score.innerText = configGame.player1Score
+    elements.player2.style.display = 'none'
+    elements.player2Score.innerText = configGame.player2Score   
+    elements.restart.style.display = 'none'
+    elements.roundNumber.innerText = configGame.round
+    elements.start.style.display = 'none'
 }
 
 function showMenu(menu, initGame){
-    menu.style.display = 'flex'
+    menu.style
+    
+    .display = 'flex'
     initGame.style.display = 'none'
 
 }
@@ -26,24 +28,24 @@ function hiddeMenu(menu, initGame){
 
 function showGame(player1, player2, board, information, menu2, start, restart, multiplayer, singleplayer, rock, paper, scissors, scores,initGame, header, exit){
     elements.game.style.display = 'grid'
+    exit.style.display = 'none'
+    header.style.display = 'none'
+    information.style.display = 'grid'
+    initGame.style.display = 'none'
+    menu2.style.display = 'flex'
+    menu2.style.display = 'none'
+    multiplayer.style.display = 'none'
+    paper.style.display = 'block'
     player1.style.display = 'grid'
     player2.style.display = 'grid'
-    information.style.display = 'grid'
-    menu2.style.display = 'flex'
-    start.style.display = 'block'
     restart.style.display = 'block'
-    multiplayer.style.display = 'none'
-    singleplayer.style.display = 'none'
-    rock.style.display = 'block'
-    paper.style.display = 'block'
-    scissors.style.display = 'block'
-    menu2.style.display = 'none'
-    start.style.display = 'none'
     restart.style.display = 'none'
-    exit.style.display = 'none'
-    initGame.style.display = 'none'
-    header.style.display = 'none'
+    rock.style.display = 'block'
+    scissors.style.display = 'block'
     scores.style.display = 'flex'
+    singleplayer.style.display = 'none'
+    start.style.display = 'block'
+    start.style.display = 'none'
 }
 
 
@@ -56,31 +58,31 @@ const configGame = {
 }
 
 const elements = {
-    container: document.getElementById('container'),
-    header: document.getElementById('header'),
-    menu: document.getElementById('menu'),
-    game: document.getElementById('game'),
-    initGame: document.getElementById('init-game'),
-    player1: document.getElementById('player-1'),
-    player2: document.getElementById('player-2'),
     board: document.getElementById('board'),
-    information: document.getElementById('information'),
-    shift: document.getElementById('shift'),
-    round: document.getElementById('round'),
-    scores : document.getElementById('player-scores'),
-    player1Score: document.getElementById('player-1-score'),
-    player2Score: document.getElementById('player-2-score'),
-    menu2: document.getElementById('menu-2'),
-    start: document.getElementById('start'),
-    restart: document.getElementById('restart'),
+    container: document.getElementById('container'),
     exit: document.getElementById('exit'),
     exit2: document.getElementById('exit-2'),
+    game: document.getElementById('game'),
+    header: document.getElementById('header'),
+    information: document.getElementById('information'),
+    initGame: document.getElementById('init-game'),
+    menu: document.getElementById('menu'),
+    menu2: document.getElementById('menu-2'),
     multiplayer: document.getElementById('multiplayer'),
-    singleplayer: document.getElementById('singleplayer'),
-    rock: document.getElementById('rock'),
     paper: document.getElementById('paper'),
+    player1: document.getElementById('player-1'),
+    player1Score: document.getElementById('player-1-score'),
+    player2: document.getElementById('player-2'),
+    player2Score: document.getElementById('player-2-score'),
+    restart: document.getElementById('restart'),
+    rock: document.getElementById('rock'),
+    round: document.getElementById('round'),
+    roundNumber: document.getElementById('round-number'),
     scissors: document.getElementById('scissors'),
-    roundNumber: document.getElementById('round-number')
+    scores : document.getElementById('player-scores'),
+    shift: document.getElementById('shift'),
+    singleplayer: document.getElementById('singleplayer'),
+    start: document.getElementById('start'),
 }
 
 init()
