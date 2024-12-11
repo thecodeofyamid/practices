@@ -2,6 +2,7 @@ const { stat } = require('fs');
 const { parse } = require('path');
 const readline = require('readline')
 const uuid = require('uuid').v4
+ 
 
 const TASK_STATUS = {
     PENDING: 'PENDING',
@@ -74,7 +75,8 @@ console.log('\x1b[32m%s\x1b[0m', `\nTareas totales: ${task.length}\n ${task.redu
 
     return {
       setTask, updateTask,// add update task here
-      getStatus,showTasks
+      getStatus,showTasks,
+      closeSession
     }
   }
 
