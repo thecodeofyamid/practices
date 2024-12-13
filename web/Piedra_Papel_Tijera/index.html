@@ -8,13 +8,54 @@
 </head>
 <body>
     <div class="container" id="container">
-        <div class="box" id="box">
+        <div class="box" id="init">
             <div class="box content" id="content">
-                <h1 class="box title" id="title">Piedra Paper Tijera</h1>
-                <p class="box text" id="text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, quia!
-                </p>
-                <button class= "box button start" id="button">Start</button>
+                <h1 class="box title" id="title">Piedra Papel ó Tijera</h1>
+                <div>
+                    <p class="box text" id="text">
+                        Piedra Papel ó Tijera es un juego de mesa en el que dos jugadores deben jugar a tijera y papel. El objetivo del juego es ganar puntos y ganar la partida.
+                        <br><br>
+                        Para ganar puntos, el jugador debe hacer una combinación de tijeras y papeles que resulte en una combinación válida. La combinación válida es cuando la suma de los números de las tijeras es igual a la suma de los números de los papeles.
+                    </p>
+                </div>
+                <div>
+                    <button class= "box button start" id="button" onclick="startGame()">Empezar</button>
+                </div>    
+            </div>
+        </div>
+        <div class="box" id="menu">
+            <div class="box content" id="box content">
+                <h1 class="box title" id="title">Menu</h1>
+                <div class="box menu">
+                    <button>Multijugador</button>
+                    <button>Contra la computadora</button>
+                    <button>Ver puntuaciones</button>
+                    <button onclick="Exit()">Salir</button>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="multiplayer">
+            <div class="box content" id="box content">
+                <h1 class="box title" id="title">Multijugador</h1>
+
+            </div>
+        </div>
+        <div class="box" id="vspc">
+            <div class="box content" id="box content">
+                <h1 id="title" class="box title">Contra la computadora</h1>
+                
+            </div>
+        </div>
+        <div class="box" id="points">
+            <div class="box content" id="box content">
+                <h1 class="title" id="title">Puntuaciones</h1>
+                
+            </div>
+        </div>
+        <div class="box" id="exit">
+            <div class="box content" id="box content">
+                <h1 class="title box" id="title">Salir</h1>
+                
             </div>
         </div>
     <script src="script.js" defer></script>
