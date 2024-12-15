@@ -1,15 +1,17 @@
-const container = document.getElementById("container");
-const box = document.getElementById("box");
-const content = document.getElementById("content");
-const menu = document.getElementById("menu");
-const init = document.getElementById("init");
-const multiplayer = document.getElementById("multiplayer");
-const vspc = document.getElementById("vspc");
-const points = document.getElementById("points");
-const exit = document.getElementById("exit");
-const title = document.getElementById("title");
-const text = document.getElementById("text");
-const button = document.querySelector(".start");
+const elements = {
+    container: document.getElementById("container"),
+    box: document.getElementById("box"),
+    content: document.getElementById("content"),
+    menu: document.getElementById("menu"),
+    init: document.getElementById("init"),
+    multiplayer: document.getElementById("multiplayer"),
+    vspc: document.getElementById("vspc"),
+    points: document.getElementById("points"),
+    exit: document.getElementById("exit"),
+    title: document.getElementById("title"),
+    text: document.getElementById("text"),
+    button: document.querySelector(".start")
+}
 
 let isStarted = false;
 
@@ -18,22 +20,22 @@ function startGame(){
     
     setTimeout(function(){
         if(isStarted){
-            button.style.display = "none";
-            init.style.display = "none";
+            elements.button.style.display = "none";
+            elements.init.style.display = "none";
         }else{
-            button.style.display = "block";
-            init.style.display = "block";
+            elements.button.style.display = "block";
+            elements.init.style.display = "block";
         }
     }, 700);
     setInterval(function(){
         if(isStarted){
-            button.style.display = "none";
-            init.style.display = "none";
-            menu.style.display = "block";
+            elements.button.style.display = "none";
+            elements.init.style.display = "none";
+            elements.menu.style.display = "block";
         }else{
-            button.style.display = "block";
-            init.style.display = "block";
-            menu.style.display = "none";
+            elements.button.style.display = "block";
+            elements.init.style.display = "block";
+            elements.menu.style.display = "none";
         }
     }, 1000);
 }
