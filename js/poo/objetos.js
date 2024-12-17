@@ -26,10 +26,20 @@ persona.saludar()
 
 // agregar nueva propiedad
 persona.edad = persona.nacimiento.anio - 1900
-console.log(persona.edad)
+console.log(persona)
 
 // agregar nuevo método
 const saludarEnIngles = function(){
     console.log(`Hello, I'm ${this.nombre}`)
 }
-console.log(persona.saludarEnIngles)
+persona.saludarEnIngles = saludarEnIngles
+persona.saludarEnIngles()
+console.log(persona)
+
+// Borrar propiedad
+delete persona.edad
+console.log(persona)
+
+// Borrar método
+delete persona.saludarEnIngles
+console.log(persona)
