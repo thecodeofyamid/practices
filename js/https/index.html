@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../output.css">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+    <div class="flex flex-col h-screen w-full bg-gray-200 overflow-auto">
+        <section class="new-post w-screen flex flex-col items-center p-5" id="new-post">
+            <form class="bg-white p-6 rounded shadow-md w-[80%] sm:w-[70%] lg:w-[40%] xl:w-[50%] 2xl:w-[40%]">
+                <div class="form-control">
+                    <div><label for="title">Title</label></div>
+                    <input type="text" id="title" class="w-full" />
+                </div>
+                <div class="form-control">
+                    <div><label for="content">Content</label></div>
+                    <textarea id="content" rows="5" class="w-full"></textarea>
+                </div> 
+                <input type="submit" value="Create Post" class="btn" />
+                <section id="available-posts">
+                    <input type="button" id="fetch-personajes" value="GET Content" class="btn" />
+                </section>
+        </section>
+        <section id="personajes" class="w-screen flex flex-col items-center p-4">
+            <div class="bg-white p-6 rounded shadow-md w-[80%]" id="personajes-content">
+                <div><h2 class="text-2xl font-bold">Personajes</h2></div>
+                <ul id="personajes-list" class="grid mt-4 grid-cols-3 gap-6">
+                    <li id="loader">Cargando...</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="./get.js"></script>
+</body>
+</html>

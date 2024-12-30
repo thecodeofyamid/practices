@@ -1,0 +1,6 @@
+@media(width < 890px){
+  #personajes-list{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
